@@ -1,4 +1,4 @@
-# ecommerce_app
+# E-Commerce Application
 
 A new Flutter project.
 
