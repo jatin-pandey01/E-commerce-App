@@ -29,7 +29,7 @@ class Product{
 
 final List<Product> all = [
   Product(
-    title : "Wireless Headphones",
+    title : "Ear buds",
     description : "Boat wireless earbuds redefine portable audio, delivering immersive sound in a sleek, tangle-free design. Dive into your favorite tunes with Boat's seamless connectivity and lasting comfort, wherever your adventures take you",
     image : "images/all/wireless.png",
     price : 799,
@@ -112,7 +112,7 @@ final List<Product> all = [
     title : "Air Jordan",
     description : "Step into sophistication and comfort with men's shoes that marry style with functionality. From sleek leather loafers for the boardroom to rugged boots for outdoor adventures, elevate every stride with quality craftsmanship and timeless design.",
     image : "images/shoes/Air Jordan.png",
-    price : 999.00,
+    price : 999,
     seller : "The Seller",
     colors : [
       Colors.grey,
@@ -160,7 +160,7 @@ final List<Product> all = [
     title : "Pants",
     description : "Men's pants blend style and functionality seamlessly, offering versatility for every occasion. From tailored trousers exuding professional elegance to rugged denim for casual coolness, find the perfect fit to complement your individuality and stride with confidence wherever you go.",
     image : "images/women fashion/pants.png",
-    price : 699,
+    price : 699.00,
     seller : "PK Store",
     colors : [
       Colors.lightGreen,

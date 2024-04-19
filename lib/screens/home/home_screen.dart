@@ -1,7 +1,10 @@
 import 'package:ecommerce_app/models/constant.dart';
+import 'package:ecommerce_app/screens/details/detail_screen.dart';
 import 'package:ecommerce_app/screens/home/widget/home_app_bar.dart';
 import 'package:ecommerce_app/screens/home/widget/home_category.dart';
 import 'package:ecommerce_app/screens/home/widget/home_image_slider.dart';
+import 'package:ecommerce_app/models/shopping_items.dart';
+import 'package:ecommerce_app/screens/home/widget/home_product.dart';
 import 'package:ecommerce_app/screens/home/widget/home_search_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -71,12 +74,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+                SizedBox(height: 10,),
 
                 //For Shopping Items
                 GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), 
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.82,
+                    crossAxisSpacing: 20, 
+                    mainAxisSpacing: 20
+                  ), 
+                  itemCount: all.length,
                   itemBuilder: (context,index){
-                    return ;
+                    return HomeProduct(product: all[index]);
                   }
                 )
               ],
