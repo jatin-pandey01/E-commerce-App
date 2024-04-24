@@ -97,7 +97,7 @@ final List<Product> all = [
     description : "Analog watches embody timeless elegance, marrying classic craftsmanship with understated sophistication. With their intricate dials and precision movements, they serve not only as timekeeping essentials but also as enduring symbols of style and refinement, effortlessly complementing any ensemble.",
     image : "images/men fashion/watch.png",
     price : 1999,
-    seller : "Jacket Store",
+    seller : "Watch Store",
     colors : [
       Colors.lightBlue,
       Colors.orange,
@@ -113,7 +113,7 @@ final List<Product> all = [
     description : "Step into sophistication and comfort with men's shoes that marry style with functionality. From sleek leather loafers for the boardroom to rugged boots for outdoor adventures, elevate every stride with quality craftsmanship and timeless design.",
     image : "images/shoes/Air Jordan.png",
     price : 999,
-    seller : "The Seller",
+    seller : "Jordan Seller",
     colors : [
       Colors.grey,
       Colors.amber,

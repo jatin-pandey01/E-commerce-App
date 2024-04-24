@@ -11,7 +11,6 @@ class DetailImageSlider extends StatefulWidget {
 }
 
 class _DetailImageSliderState extends State<DetailImageSlider> {
-    int currentSlide = 0;
   @override
   Widget build(BuildContext context) {
     return Stack(
