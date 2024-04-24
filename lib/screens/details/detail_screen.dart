@@ -16,16 +16,24 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   int currentSlide = 0, currentColor = 0, currentTextSlide = 0;
-  // late PageController _controller;
+  late PageController _controller;
 
-  // @override
-  // void initState() {
-  //   _controller = PageController();
-  //   super.initState();
+  @override
+  void initState() {
+    _controller = PageController();
+    super.initState();
     
-  // }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: contentColor,
       body: SafeArea(
@@ -218,6 +226,10 @@ class _DetailScreenState extends State<DetailScreen> {
                           onTap: () {
                             setState(() {
                               currentTextSlide = 0;
+                              _controller.animateToPage(
+                                0, 
+                                duration: Duration(milliseconds: 500), curve: Curves.linear
+                              );
                             });
                           },
                           child: AnimatedContainer(
@@ -245,6 +257,10 @@ class _DetailScreenState extends State<DetailScreen> {
                           onTap: () {
                             setState(() {
                               currentTextSlide = 1;
+                              _controller.animateToPage(
+                                1, 
+                                duration: Duration(milliseconds: 500), curve: Curves.linear
+                              );
                             });
                           },
                           child: AnimatedContainer(
@@ -272,6 +288,10 @@ class _DetailScreenState extends State<DetailScreen> {
                           onTap: () {
                             setState(() {
                               currentTextSlide = 2;
+                              _controller.animateToPage(
+                                2, 
+                                duration: Duration(milliseconds: 500), curve: Curves.linear
+                              );
                             });
                           },
                           child: AnimatedContainer(
@@ -296,11 +316,12 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ],
                     ),
+                    SizedBox(height: 10,),
                     Container(
                       width: double.infinity,
-                      height: 250,
+                      height: 300,
                       child: PageView(
-                        // controller: _controller,
+                        controller: _controller,
                         allowImplicitScrolling: true,
                         onPageChanged: (value){
                           setState(() {
@@ -310,9 +331,86 @@ class _DetailScreenState extends State<DetailScreen> {
                         scrollDirection: Axis.horizontal,
                         physics: ClampingScrollPhysics(),
                         children: [
-                          Text(widget.product.description),
-                          Text("Specifications"),
-                          Text("Reviews")
+                          Text(
+                            widget.product.description,
+                            textAlign: TextAlign.justify,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400
+                            ),
+                          ),
+                          const Text(
+                            "Seamless shopping at your fingertips, where convenience meets endless choices. Explore, shop, and redefine your online experience with our intuitive e-commerce app.",
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500
+                            ),
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    width: 2,
+                                    color: contentColor
+                                  )
+                                ),
+                                padding: EdgeInsets.all(2),
+                                child: const CircleAvatar(
+                                  backgroundImage: AssetImage(
+                                    'images/profile.png'
+                                  ),
+                                  radius: 25,
+                                ),
+                              ),
+                              const SizedBox(width: 20,),
+                              Container(
+                                width: size.width-120,
+                                margin: EdgeInsets.only(top: 5),
+                                child: const Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "Jatin Pandey",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w800,
+                                            fontSize: 16,
+                                            color: Colors.black87
+                                          ),
+                                        ),
+                                        // SizedBox(width: 100,),
+                                        Text(
+                                          "March 24",
+                                          style: TextStyle(
+                                            color: Colors.black87,
+                                            fontSize: 14
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(height: 5,),
+                                    Text(
+                                      "Dive into a world of unparalleled shopping convenience with our cutting-edge Flutter-powered e-commerce app. Seamlessly browse through an extensive catalog, enjoy lightning-fast transactions, and redefine your online shopping experience. Experience the future of e-commerce, designed with Flutter's versatility and performance in mind.",
+                                      textAlign: TextAlign.justify,
+                                      style: TextStyle(
+                                        color: Colors.black54,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          )
                         ],
                       ),
                     )
