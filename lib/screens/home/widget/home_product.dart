@@ -72,7 +72,7 @@ class _HomeProductState extends State<HomeProduct> {
                             },
                             child: AnimatedContainer(
                               duration: Duration(
-                                microseconds: 300
+                                milliseconds: 300
                               ),
                               width: currentColor == index ? 20 : 16,
                               height: currentColor == index ? 20 : 16,

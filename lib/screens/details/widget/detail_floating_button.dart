@@ -15,7 +15,7 @@ class _DetailFloatingButtonState extends State<DetailFloatingButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: currentCart <= 9 ? MediaQuery.of(context).size.width/1.2 : (currentCart <= 99 ? MediaQuery.of(context).size.width/1.15 : MediaQuery.of(context).size.width/1.1),
+      width: currentCart <= 9 ? MediaQuery.of(context).size.width/1.1 : (currentCart <= 99 ? MediaQuery.of(context).size.width/1.07 : MediaQuery.of(context).size.width/1.02),
       padding: EdgeInsets.symmetric(horizontal: 15),
       margin: EdgeInsets.only(bottom: 10),
       height: 85,

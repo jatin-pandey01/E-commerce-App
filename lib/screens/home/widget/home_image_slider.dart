@@ -14,18 +14,48 @@ class HomeImageSlider extends StatelessWidget {
         SizedBox(
           height: 220,
           width: double.infinity,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: PageView(
-              onPageChanged: onChange,
-              scrollDirection: Axis.horizontal,
-              allowImplicitScrolling: true,
-              physics: ClampingScrollPhysics(),
-              children: [
-                Image.asset("images/slider.jpg", fit: BoxFit.cover,),
-                Image.asset("images/image1.png", fit: BoxFit.cover,),
-                Image.asset("images/slider3.png", fit: BoxFit.cover,),
-              ],
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: PageView(
+                onPageChanged: onChange,
+                scrollDirection: Axis.horizontal,
+                allowImplicitScrolling: true,
+                physics: ClampingScrollPhysics(),
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        "images/slider.jpg", 
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        "images/image1.png", 
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        "images/slider3.png", 
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                  ),
+                ],
+              ),
             ),
           ),
         ),

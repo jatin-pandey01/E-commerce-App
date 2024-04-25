@@ -8,6 +8,7 @@ class HomeSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 55,
+      margin: EdgeInsets.symmetric(horizontal: 20),
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),

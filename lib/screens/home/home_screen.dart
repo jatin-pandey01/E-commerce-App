@@ -24,35 +24,35 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //For App Bar
-                HomeAppBar(),
-                SizedBox(height: 20,),
-
-                //For Search Bar
-                HomeSearchBar(),
-                SizedBox(height: 20,),
-
-                //For Slider
-                HomeImageSlider(
-                  currentSlide: currentSlide, 
-                  onChange:   (value){
-                  setState(() {
-                    currentSlide = value;
-                  });
-                  },
-                ),
-                SizedBox(height: 20,),
-
-                //For category Section
-                HomeCategory(),
-                // SizedBox(height: 20,),
-
-                const Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //For App Bar
+              HomeAppBar(),
+              SizedBox(height: 20,),
+          
+              //For Search Bar
+              HomeSearchBar(),
+              SizedBox(height: 20,),
+          
+              //For Slider
+              HomeImageSlider(
+                currentSlide: currentSlide, 
+                onChange:   (value){
+                setState(() {
+                  currentSlide = value;
+                });
+                },
+              ),
+              SizedBox(height: 20,),
+          
+              //For category Section
+              HomeCategory(),
+              // SizedBox(height: 20,),
+          
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -74,15 +74,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 10,),
-
-                //For Shopping Items
-                GridView.builder(
+              ),
+              SizedBox(height: 10,),
+          
+              //For Shopping Items
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0,right: 20, bottom: 20),
+                child: GridView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 0.82,
+                    childAspectRatio: 0.78,
                     crossAxisSpacing: 20, 
                     mainAxisSpacing: 20
                   ), 
@@ -90,9 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemBuilder: (context,index){
                     return HomeProduct(product: all[index]);
                   }
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ),
       ),
