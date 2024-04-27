@@ -23,6 +23,14 @@ class CartProvider extends ChangeNotifier{
     notifyListeners();
   }
 
+  double totalPrice(){
+    double total = 0.0;
+    for(Product e in _cart){
+      total += (e.price* e.quantity);
+    }
+    return total;
+  }
+
   static CartProvider of(BuildContext context,{bool listen = true,}){
     return Provider.of<CartProvider>(
       context, 

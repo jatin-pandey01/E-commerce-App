@@ -20,7 +20,7 @@ class HomeSearchBar extends StatelessWidget {
           const Icon(Icons.search,color: Colors.grey,size: 30,),
           const SizedBox(width: 10,),
           const Flexible(
-            flex: 4,
+            flex: 2,
             child: TextField(
               style: TextStyle(
                 fontSize: 18,
@@ -34,6 +34,7 @@ class HomeSearchBar extends StatelessWidget {
               ),
             )
           ),
+          SizedBox(width: 5,),
           Container(
             height: 25,
             width: 1.5,
