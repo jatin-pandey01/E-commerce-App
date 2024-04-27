@@ -11,6 +11,7 @@ class Product{
   final String category ;
   final double rate;
   int quantity;
+  bool favorite;
 
   Product({
     required this.title,
@@ -23,6 +24,7 @@ class Product{
     required this.category,
     required this.rate,
     required this.quantity,
+    required this.favorite
   });
 }
 
@@ -43,6 +45,7 @@ final List<Product> all = [
     review : "(320 Reviews)",
     rate : 4.8,
     quantity : 1,
+    favorite: false,
   ),
   Product(
     title : "Woman Sweater",
@@ -59,6 +62,7 @@ final List<Product> all = [
     review : "(32 Reviews)",
     rate : 4.5,
     quantity : 1,
+    favorite: false,
   ),
   Product(
     title : "Smart Watch",
@@ -75,6 +79,7 @@ final List<Product> all = [
     review : "(20 Reviews)",
     rate : 4.0,
     quantity : 1,
+    favorite: false,
   ),
   Product(
     title : "Mens Jacket",
@@ -91,6 +96,7 @@ final List<Product> all = [
     review : "(20 Reviews)",
     rate : 5.0,
     quantity : 1,
+    favorite: false,
   ),
    Product(
     title : "Watch",
@@ -107,6 +113,7 @@ final List<Product> all = [
     review : "(100 Reviews)",
     rate : 5.0,
     quantity : 1,
+    favorite: false,
   ),
    Product(
     title : "Air Jordan",
@@ -123,6 +130,7 @@ final List<Product> all = [
     review : "(55 Reviews)",
     rate : 5.0,
     quantity : 1,
+    favorite: false,
   ),
   Product(
     title : "Super Perfume",
@@ -139,6 +147,7 @@ final List<Product> all = [
     review : "(99 Reviews)",
     rate : 4.7,
     quantity : 1,
+    favorite: false,
   ),
   Product(
     title : "Wedding Ring",
@@ -155,6 +164,7 @@ final List<Product> all = [
     review : "(80 Reviews)",
     rate : 4.5,
     quantity : 1,
+    favorite: false,
   ),
   Product(
     title : "Pants",
@@ -171,5 +181,6 @@ final List<Product> all = [
     review : "(55 Reviews)",
     rate : 5.0,
     quantity : 1,
+    favorite: false,
   ),
 ];
