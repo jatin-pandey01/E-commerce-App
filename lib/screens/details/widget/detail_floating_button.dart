@@ -84,7 +84,9 @@ class _DetailFloatingButtonState extends State<DetailFloatingButton> {
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: TextButton(
               onPressed: (){
-                provider.toggleFavorite(widget.product);
+                setState(() {
+                  provider.toggleFavorite(widget.product,currentCart);
+                });
                 const snackBar = SnackBar(
                   content: Text(
                     "Successfully Added",
@@ -94,7 +96,7 @@ class _DetailFloatingButtonState extends State<DetailFloatingButton> {
                       color: Colors.white
                     ),
                   ),
-                  duration: Duration(seconds: 2),
+                  duration: Duration(milliseconds: 80),
                 );
 
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);

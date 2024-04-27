@@ -8,13 +8,16 @@ class CartProvider extends ChangeNotifier{
   
   List<Product> get cart => _cart;
 
-  void toggleFavorite(Product product){
+  void toggleFavorite(Product product, int quantity){
     if(_cart.contains(product)){
       for(Product element in _cart){
-        element.quantity++;
+        if(element == product){
+          element.quantity += quantity;
+        }
       }
     }
     else{
+      product.quantity = quantity;
       _cart.add(product);
     }
     notifyListeners();
