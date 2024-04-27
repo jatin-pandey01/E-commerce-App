@@ -10,7 +10,7 @@ class Product{
   final List<Color> colors;
   final String category ;
   final double rate;
-  final int quantity;
+  int quantity;
 
   Product({
     required this.title,

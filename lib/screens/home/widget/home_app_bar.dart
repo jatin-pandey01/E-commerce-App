@@ -7,14 +7,14 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20,right: 20,top: 10),
+      padding: const EdgeInsets.only(left: 20,right: 20,top: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
             style: IconButton.styleFrom(
               backgroundColor: contentColor, 
-              padding: EdgeInsets.all(20)
+              padding: const EdgeInsets.all(20)
             ),
             onPressed: (){}, 
             icon: Image.asset("images/icon.png", height: 20,)
@@ -22,11 +22,11 @@ class HomeAppBar extends StatelessWidget {
           IconButton(
             style: IconButton.styleFrom(
               backgroundColor: contentColor,
-              padding: EdgeInsets.all(15)
+              padding: const EdgeInsets.all(15)
             ),
             onPressed: (){}, 
             iconSize: 30,
-            icon: Icon(Icons.notifications_outlined)
+            icon: const Icon(Icons.notifications_outlined)
           )
         ],
       ),

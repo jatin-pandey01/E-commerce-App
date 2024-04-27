@@ -30,9 +30,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
             currentIndex = 2;
           });
         },
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
         backgroundColor: primaryColor,
-        child: Icon(
+        child: const Icon(
           Icons.home,
           color: Colors.white,
           size: 35,
@@ -43,7 +43,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         elevation: 1,
         height: 60,
         color: Colors.white,
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 10,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: Row(
@@ -74,7 +74,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 color: currentIndex == 1 ? primaryColor : Colors.grey.shade400,
               ),
             ),
-            SizedBox(width: 15,),
+            const SizedBox(width: 15,),
             IconButton(
               onPressed: (){
                 setState(() {

@@ -15,17 +15,17 @@ class HomeImageSlider extends StatelessWidget {
           height: 220,
           width: double.infinity,
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: PageView(
                 onPageChanged: onChange,
                 scrollDirection: Axis.horizontal,
                 allowImplicitScrolling: true,
-                physics: ClampingScrollPhysics(),
+                physics: const ClampingScrollPhysics(),
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Image.asset(
@@ -35,7 +35,7 @@ class HomeImageSlider extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Image.asset(
@@ -45,7 +45,7 @@ class HomeImageSlider extends StatelessWidget {
                     )
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Image.asset(
@@ -68,10 +68,10 @@ class HomeImageSlider extends StatelessWidget {
               children: List.generate(
                 3, 
                 (index) => AnimatedContainer(
-                  duration: Duration(microseconds: 300),
+                  duration: const Duration(microseconds: 300),
                   width: currentSlide == index ? 15 : 8,
                   height: 8,
-                  margin: EdgeInsets.only(right: 3),
+                  margin: const EdgeInsets.only(right: 3),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: currentSlide == index  ? Colors.black : Colors.transparent,

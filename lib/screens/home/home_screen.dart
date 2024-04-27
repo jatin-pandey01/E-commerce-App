@@ -1,5 +1,3 @@
-import 'package:ecommerce_app/models/constant.dart';
-import 'package:ecommerce_app/screens/details/detail_screen.dart';
 import 'package:ecommerce_app/screens/home/widget/home_app_bar.dart';
 import 'package:ecommerce_app/screens/home/widget/home_category.dart';
 import 'package:ecommerce_app/screens/home/widget/home_image_slider.dart';
@@ -28,12 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //For App Bar
-              HomeAppBar(),
-              SizedBox(height: 20,),
+              const HomeAppBar(),
+              const SizedBox(height: 20,),
           
               //For Search Bar
-              HomeSearchBar(),
-              SizedBox(height: 20,),
+              const HomeSearchBar(),
+              const SizedBox(height: 20,),
           
               //For Slider
               HomeImageSlider(
@@ -44,10 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
                 },
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
           
               //For category Section
-              HomeCategory(),
+              const HomeCategory(),
               // SizedBox(height: 20,),
           
               const Padding(
@@ -75,13 +73,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
           
               //For Shopping Items
               Padding(
                 padding: const EdgeInsets.only(left: 20.0,right: 20, bottom: 20),
                 child: GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,

@@ -8,13 +8,13 @@ class HomeSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 55,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: contentColor
       ),
-      padding: EdgeInsets.symmetric(horizontal: 25,vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 25,vertical: 5),
       child: Row(
         children: [
           const Icon(Icons.search,color: Colors.grey,size: 30,),
@@ -37,13 +37,13 @@ class HomeSearchBar extends StatelessWidget {
           Container(
             height: 25,
             width: 1.5,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.grey
             ),
           ),
           IconButton(
             onPressed: (){}, 
-            icon: Icon(Icons.tune_outlined, color: Colors.grey,)
+            icon: const Icon(Icons.tune_outlined, color: Colors.grey,)
           )
         ],
       ),

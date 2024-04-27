@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/models/constant.dart';
 import 'package:ecommerce_app/models/shopping_items.dart';
+import 'package:ecommerce_app/provider/cart_provider.dart';
 import 'package:flutter/material.dart';
 
 class DetailFloatingButton extends StatefulWidget {
@@ -14,10 +15,11 @@ class _DetailFloatingButtonState extends State<DetailFloatingButton> {
   int currentCart = 1;
   @override
   Widget build(BuildContext context) {
+    final provider = CartProvider.of(context);
     return Container(
       width: currentCart <= 9 ? MediaQuery.of(context).size.width/1.1 : (currentCart <= 99 ? MediaQuery.of(context).size.width/1.07 : MediaQuery.of(context).size.width/1.02),
-      padding: EdgeInsets.symmetric(horizontal: 15),
-      margin: EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      margin: const EdgeInsets.only(bottom: 10),
       height: 85,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
@@ -32,7 +34,7 @@ class _DetailFloatingButtonState extends State<DetailFloatingButton> {
               border: Border.all(width: 2, color: Colors.white),
               borderRadius: BorderRadius.circular(50)
             ),
-            padding: EdgeInsets.symmetric(horizontal: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Row(
               children: [
                 IconButton(
@@ -43,29 +45,29 @@ class _DetailFloatingButtonState extends State<DetailFloatingButton> {
                       }
                     });
                   }, 
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.remove,
                     color: Colors.white,
                     size: 25,
                   )
                 ),
-                SizedBox(width: 10,),
+                const SizedBox(width: 10,),
                 Text(
                   currentCart.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 25,
                     fontWeight: FontWeight.w600
                   ),
                 ),
-                SizedBox(width: 10,),
+                const SizedBox(width: 10,),
                 IconButton(
                   onPressed: (){
                     setState(() {
                       currentCart++;
                     });
                   }, 
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.add,
                     size: 25,
                     color: Colors.white,
@@ -79,10 +81,25 @@ class _DetailFloatingButtonState extends State<DetailFloatingButton> {
               color: primaryColor,
               borderRadius: BorderRadius.circular(50),
             ),
-            padding: EdgeInsets.symmetric(horizontal: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 5),
             child: TextButton(
-              onPressed: (){},
-              child: Text(
+              onPressed: (){
+                provider.toggleFavorite(widget.product);
+                const snackBar = SnackBar(
+                  content: Text(
+                    "Successfully Added",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                      color: Colors.white
+                    ),
+                  ),
+                  duration: Duration(seconds: 2),
+                );
+
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              },
+              child: const Text(
                 "Add to Cart",
                 style: TextStyle(
                   color: Colors.white,

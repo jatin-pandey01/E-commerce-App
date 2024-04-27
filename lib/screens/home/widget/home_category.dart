@@ -27,10 +27,10 @@ class HomeCategory extends StatelessWidget {
                     )
                   ),
                 ),
-                SizedBox(height: 5,),
+                const SizedBox(height: 5,),
                 Text(
                   categories[index].title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold
                   ),
@@ -38,7 +38,7 @@ class HomeCategory extends StatelessWidget {
               ],
             );
           },
-          separatorBuilder: (context,index) => SizedBox(width: 20,),
+          separatorBuilder: (context,index) => const SizedBox(width: 20,),
         ),
       ),
     );

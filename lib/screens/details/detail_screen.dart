@@ -3,9 +3,7 @@ import 'package:ecommerce_app/models/shopping_items.dart';
 import 'package:ecommerce_app/screens/details/widget/detail_app_bar.dart';
 import 'package:ecommerce_app/screens/details/widget/detail_floating_button.dart';
 import 'package:ecommerce_app/screens/details/widget/detail_image_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class DetailScreen extends StatefulWidget {
   final Product product;
@@ -93,7 +91,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   children: [
                     //For Product name, Price, Rating, and Seller
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
                         widget.product.title,
                         style: const TextStyle(
@@ -104,7 +102,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                     const SizedBox(height: 4,),
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -185,7 +183,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                     const SizedBox(height: 15,),
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: const Text(
                         "Color", 
                         style: TextStyle(
@@ -196,7 +194,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         children: [
                           ...List.generate(
@@ -234,9 +232,9 @@ class _DetailScreenState extends State<DetailScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         children: [
                           GestureDetector(
@@ -247,7 +245,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               });
                             },
                             child: AnimatedContainer(
-                              duration: Duration(microseconds: 1500),
+                              duration: const Duration(microseconds: 1500),
                               padding: EdgeInsets.symmetric(horizontal: currentTextSlide == 0 ? 15 : 0, vertical: currentTextSlide == 0 ? 7 : 0),
                               decoration: BoxDecoration(
                                 color: currentTextSlide == 0 ? primaryColor : null,
@@ -266,7 +264,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               ),
                             ),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           GestureDetector(
                             onTap: () {
                               setState(() {
@@ -275,7 +273,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               });
                             },
                             child: AnimatedContainer(
-                              duration: Duration(microseconds: 1500),
+                              duration: const Duration(microseconds: 1500),
                               padding: EdgeInsets.symmetric(horizontal: currentTextSlide == 1 ? 15 : 0, vertical: currentTextSlide == 1 ? 7 : 0),
                               decoration: BoxDecoration(
                                 color: currentTextSlide == 1 ? primaryColor : null,
@@ -294,7 +292,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               ),
                             ),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           GestureDetector(
                             onTap: () {
                               setState(() {
@@ -303,7 +301,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               });
                             },
                             child: AnimatedContainer(
-                              duration: Duration(microseconds: 1500),
+                              duration: const Duration(microseconds: 1500),
                               padding: EdgeInsets.symmetric(horizontal: currentTextSlide == 2 ? 15 : 0, vertical: currentTextSlide == 2 ? 7 : 0),
                               decoration: BoxDecoration(
                                 color: currentTextSlide == 2 ? primaryColor : null,
@@ -325,8 +323,8 @@ class _DetailScreenState extends State<DetailScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10,),
-                    Container(
+                    const SizedBox(height: 10,),
+                    SizedBox(
                       width: double.infinity,
                       height: 270,
                       child: PageView(
@@ -338,10 +336,10 @@ class _DetailScreenState extends State<DetailScreen> {
                           });
                         },
                         scrollDirection: Axis.horizontal,
-                        physics: ClampingScrollPhysics(),
+                        physics: const ClampingScrollPhysics(),
                         children: [
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Text(
                               widget.product.description,
                               textAlign: TextAlign.justify,
@@ -353,7 +351,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             ),
                           ),
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: const Text(
                               "Seamless shopping at your fingertips, where convenience meets endless choices. Explore, shop, and redefine your online experience with our intuitive e-commerce app.",
                               textAlign: TextAlign.justify,
@@ -365,7 +363,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             ),
                           ),
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -377,7 +375,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                       color: contentColor
                                     )
                                   ),
-                                  padding: EdgeInsets.all(2),
+                                  padding: const EdgeInsets.all(2),
                                   child: const CircleAvatar(
                                     backgroundImage: AssetImage(
                                       'images/profile.png'
@@ -388,7 +386,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 const SizedBox(width: 20,),
                                 Container(
                                   width: size.width-100,
-                                  margin: EdgeInsets.only(top: 5),
+                                  margin: const EdgeInsets.only(top: 5),
                                   child: const Column(
                                     children: [
                                       Row(

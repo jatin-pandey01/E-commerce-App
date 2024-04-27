@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -21,9 +22,12 @@ class _DetailImageSliderState extends State<DetailImageSlider> {
             allowImplicitScrolling: true,
             onPageChanged: widget.onChange,
             scrollDirection: Axis.horizontal,
-            physics: ClampingScrollPhysics(),
+            physics: const ClampingScrollPhysics(),
             children: [
-              Image.asset(widget.image),
+              Hero(
+                tag: widget.image,
+                child: Image.asset(widget.image)
+              ),
               Image.asset(widget.image),
               Image.asset(widget.image),
             ],

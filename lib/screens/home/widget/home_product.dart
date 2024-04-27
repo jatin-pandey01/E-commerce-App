@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class HomeProduct extends StatefulWidget {
   final Product product;
-  HomeProduct({super.key, required this.product});
+  const HomeProduct({super.key, required this.product});
 
   @override
   State<HomeProduct> createState() => _HomeProductState();
@@ -34,21 +34,24 @@ class _HomeProductState extends State<HomeProduct> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 15,),
-                Center(
-                  child: Image.asset(
-                    widget.product.image,
-                    fit: BoxFit.cover,
-                    width: 130,
-                    height: 130,
+                const SizedBox(height: 10,),
+                Hero(
+                  tag: widget.product.image,
+                  child: Center(
+                    child: Image.asset(
+                      widget.product.image,
+                      fit: BoxFit.cover,
+                      width: 140,
+                      height: 140,
+                    ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Padding(
-                  padding: EdgeInsets.only(left: 10,),
+                  padding: const EdgeInsets.only(left: 10,),
                   child: Text(
                     widget.product.title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
@@ -71,13 +74,13 @@ class _HomeProductState extends State<HomeProduct> {
                               });
                             },
                             child: AnimatedContainer(
-                              duration: Duration(
+                              duration: const Duration(
                                 milliseconds: 300
                               ),
                               width: currentColor == index ? 20 : 16,
                               height: currentColor == index ? 20 : 16,
-                              margin: EdgeInsets.only(right: 4),
-                              padding: EdgeInsets.all(2),
+                              margin: const EdgeInsets.only(right: 4),
+                              padding: const EdgeInsets.all(2),
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: widget.product.colors[index],
@@ -91,9 +94,34 @@ class _HomeProductState extends State<HomeProduct> {
                     )
                   ],
                 )
-      
               ],
             ),
+          ),
+          Positioned(
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                height: 40,
+                width: 40,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(5)
+                  ),
+                  color: primaryColor
+                ),
+                child: GestureDetector(
+                  onTap: () {
+                    
+                  },
+                  child: const Icon(
+                    Icons.favorite_border, 
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                ),
+              ),
+            )
           )
         ],
       ),
