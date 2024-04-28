@@ -8,15 +8,18 @@ class FavoriteProvider extends ChangeNotifier{
 
   List<Product> get favorites => _favorites;
 
-  void toggleFavorite(Product product, bool fav){
-    product.favorite = fav;
-    if(fav){
-      _favorites.add(product);
-    }
-    else{
+  void toggleFavorite(Product product){
+    if(_favorites.contains(product)){
       _favorites.remove(product);
     }
+    else{
+      _favorites.add(product);
+    }
     notifyListeners();
+  }
+
+  bool isExist(Product product){
+    return _favorites.contains(product);
   }
 
   static FavoriteProvider of(BuildContext context,{bool listen = true}){

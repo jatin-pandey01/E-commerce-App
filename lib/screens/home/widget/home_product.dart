@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/models/constant.dart';
 import 'package:ecommerce_app/models/shopping_items.dart';
+import 'package:ecommerce_app/provider/favorite_provider.dart';
 import 'package:ecommerce_app/screens/details/detail_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,7 @@ class _HomeProductState extends State<HomeProduct> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = FavoriteProvider.of(context);
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(product: widget.product,)));
@@ -97,6 +99,8 @@ class _HomeProductState extends State<HomeProduct> {
               ],
             ),
           ),
+
+          //For favorite
           Positioned(
             child: Align(
               alignment: Alignment.topRight,
@@ -112,9 +116,19 @@ class _HomeProductState extends State<HomeProduct> {
                 ),
                 child: GestureDetector(
                   onTap: () {
-                    
+                    setState(() {
+                      provider.toggleFavorite(widget.product);
+                      print(provider.favorites.length);
+                      print("object");
+                    });
                   },
-                  child: const Icon(
+                  child: provider.isExist(widget.product) ? 
+                  const Icon(
+                    Icons.favorite, 
+                    color: Colors.white,
+                    size: 30,
+                  ) :
+                  const Icon(
                     Icons.favorite_border, 
                     color: Colors.white,
                     size: 30,

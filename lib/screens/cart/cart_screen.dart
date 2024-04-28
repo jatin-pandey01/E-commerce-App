@@ -168,148 +168,154 @@ class _CartScreenState extends State<CartScreen> {
                 ),
               ),
               finalList.length == 0 ? 
-              Container(
-                height: MediaQuery.of(context).size.height*0.6,
+              Expanded(
                 child: Center(
-                  child: Text("No Cart Items here !!!"),
-                ),
+                  child: Text(
+                    "No Cart Items !!",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold
+                    ),
+                  )
+                )
               ) :
               Expanded(
                 child: ListView.builder(
+                  shrinkWrap: true,
                   itemCount: finalList.length,
                   itemBuilder: (context,index){
                     final cartItems = finalList[index];
-                    return Stack(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          margin: EdgeInsets.only(
-                            bottom: 20, 
-                            right: 10, 
-                            left: 10,
-                            top: 5
+                    return Container(
+                      padding: EdgeInsets.all(10),
+                      margin: EdgeInsets.only(
+                        bottom: 20, 
+                        right: 10, 
+                        left: 10,
+                        top: 5
+                      ),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 120,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: contentColor
+                            ),
+                            padding: EdgeInsets.all(10),
+                            child: Image(
+                              image: AssetImage(cartItems.image,), 
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
-                          ),
-                          child: Row(
+                          SizedBox(width: 10,),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                height: 120,
-                                width: 100,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: contentColor
+                              Text(
+                                cartItems.title,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16
                                 ),
-                                padding: EdgeInsets.all(10),
-                                child: Image(image: AssetImage(cartItems.image,), fit: BoxFit.cover,),
                               ),
-                              SizedBox(width: 10,),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    cartItems.title,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16
-                                    ),
-                                  ),
-                                  SizedBox(height: 5,),
-                                  Text(
-                                    cartItems.category,
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.grey.shade400,
-                                      fontWeight: FontWeight.bold
-                                    ),
-                                  ),
-                                  SizedBox(height: 10,),
-                                  Text(
-                                    '\u{20B9} ${cartItems.price * cartItems.quantity}',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14,
-                                    ),
-                                  )
-                                ],
+                              SizedBox(height: 5,),
+                              Text(
+                                cartItems.category,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey.shade400,
+                                  fontWeight: FontWeight.bold
+                                ),
                               ),
-                              Spacer(),
-                              Container(
-                                height: 120,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    IconButton(
-                                      onPressed: (){
-                                        setState(() {
-                                          finalList.remove(cartItems);
-                                          //And for removing index, use finalList.removeAt(index);
-                                        });
-                                      }, 
-                                      icon: Icon(
-                                        Icons.delete,
-                                        color: primaryColor,
-                                      )
-                                    ),
-                                    SizedBox(height: 20,),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: contentColor,
-                                        borderRadius: BorderRadius.circular(40)
-                                      ),
-                                      // padding: EdgeInsets.all(2),
-                                      
-                                      child: Row(
-                                        children: [
-                                          IconButton(
-                                            onPressed: (){
-                                              setState(() {
-                                                if(cartItems.quantity > 1){
-                                                  cartItems.quantity--;
-                                                }
-                                              });
-                                            }, 
-                                            icon: Icon(
-                                              Icons.remove,
-                                              color: Colors.black,
-                                              weight: BorderSide.strokeAlignOutside,
-                                              size: 20,
-                                            ),
-                                          ),
-                                          SizedBox(width: 5,),
-                                          Text(
-                                            '${cartItems.quantity}',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18
-                                            ),
-                                          ),
-                                          SizedBox(width: 5,),
-                                          IconButton(
-                                            onPressed: (){
-                                              setState(() {
-                                                cartItems.quantity++;
-                                              });
-                                            }, 
-                                            icon: Icon(
-                                              Icons.add,
-                                              color: Colors.black,
-                                              size: 20,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  ],
+                              SizedBox(height: 10,),
+                              Text(
+                                '\u{20B9} ${cartItems.price * cartItems.quantity}',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
                                 ),
                               )
                             ],
                           ),
-                        )
-                      ],
+                          Spacer(),
+                          Container(
+                            height: 120,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                  onPressed: (){
+                                    setState(() {
+                                      finalList.remove(cartItems);
+                                      //And for removing index, use finalList.removeAt(index);
+                                    });
+                                  }, 
+                                  icon: Icon(
+                                    Icons.delete,
+                                    color: primaryColor,
+                                  )
+                                ),
+                                SizedBox(height: 20,),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: contentColor,
+                                    borderRadius: BorderRadius.circular(40)
+                                  ),
+                                  // padding: EdgeInsets.all(2),
+                                  
+                                  child: Row(
+                                    children: [
+                                      IconButton(
+                                        onPressed: (){
+                                          setState(() {
+                                            if(cartItems.quantity > 1){
+                                              cartItems.quantity--;
+                                            }
+                                          });
+                                        }, 
+                                        icon: Icon(
+                                          Icons.remove,
+                                          color: Colors.black,
+                                          weight: BorderSide.strokeAlignOutside,
+                                          size: 20,
+                                        ),
+                                      ),
+                                      SizedBox(width: 5,),
+                                      Text(
+                                        '${cartItems.quantity}',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18
+                                        ),
+                                      ),
+                                      SizedBox(width: 5,),
+                                      IconButton(
+                                        onPressed: (){
+                                          setState(() {
+                                            cartItems.quantity++;
+                                          });
+                                        }, 
+                                        icon: Icon(
+                                          Icons.add,
+                                          color: Colors.black,
+                                          size: 20,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     );
                   }
                 ),
