@@ -22,9 +22,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   ];
   @override
   Widget build(BuildContext context) {
+    bool isKeyboardOpen = MediaQuery.of(context).viewInsets.bottom != 0.0;
     
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: isKeyboardOpen ? null : FloatingActionButton(
         onPressed: (){
           setState(() {
             currentIndex = 2;
