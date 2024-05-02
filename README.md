@@ -7,21 +7,21 @@
 
 <h2> Home : </h2>
 <p> It shows all the product available to us. </p>
-<img src="/images/app/home_screen_1.jpg" />
-<img src="/images/app/home_screen_2.jpg" />
+<img src="/images/app/home_screen_1.jpg" height="100" width="100" />
+<img src="/images/app/home_screen_2.jpg" height="100" width="100" />
 
 <h2> Favorite : </h2>
 <p> Favorite product/item of user. It's get add and remove by Heart Icon on  </p>
-<img src="/images/app/favorite_1.jpg" />
-<img src="/images/app/favorite_2.jpg" />
+<img src="/images/app/favorite_1.jpg" height="100" width="100" />
+<img src="/images/app/favorite_2.jpg" height="100" width="100" />
 
 <h2> Cart : </h2>
 <p> User can store product to buy and it will show total price of product available in cart with their quntity. </p>
-<img src="/images/app/cart_1.jpg" />
-<img src="/images/app/cart_2.jpg" />
+<img src="/images/app/cart_1.jpg" height="100" width="100" />
+<img src="/images/app/cart_2.jpg" height="100" width="100" />
 
 <h2> Detail Page : </h2>
 <p> Detail Page shows all the information of product with their Description, Specification, and Reviews.  </p>
-<img src="/images/app/detail_1.jpg" />
-<img src="/images/app/detail_2.jpg" />
-<img src="/images/app/detail_3.jpg" />
+<img src="/images/app/detail_1.jpg" height="100" width="100" />
+<img src="/images/app/detail_2.jpg" height="100" width="100" />
+<img src="/images/app/detail_3.jpg" height="100" width="100" />
